@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>挑戦という希望の物語</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #FFFFFF; /* ホワイト */
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* --- Watercolor Background --- */
+      body::before,
+      body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+        background-repeat: no-repeat;
+        filter: blur(80px) brightness(1.1); 
+        will-change: transform;
+      }
+
+      body::before {
+        background-image: 
+          radial-gradient(circle at 15% 25%, hsl(30, 90%, 88%) 0%, transparent 50%),
+          radial-gradient(circle at 85% 75%, hsl(210, 90%, 90%) 0%, transparent 50%);
+        opacity: 0.8; /* Enhanced visibility */
+        animation: watercolorDrift 80s ease-in-out infinite alternate;
+      }
+
+      body::after {
+        background-image: 
+          radial-gradient(circle at 80% 20%, hsl(300, 80%, 92%) 0%, transparent 45%),
+          radial-gradient(circle at 20% 85%, hsl(40, 80%, 90%) 0%, transparent 60%);
+        opacity: 0.9; /* Enhanced visibility */
+        animation: watercolorDrift 100s ease-in-out -20s infinite alternate-reverse;
+      }
+      
+      @keyframes watercolorDrift {
+          from { transform: translate(-5vw, -10vh) rotate(-5deg) scale(1.3); }
+          to { transform: translate(5vw, 10vh) rotate(5deg) scale(1.3); }
+      }
+
+      ::selection {
+        background-color: #DDE8F0; /* watercolor-blue */
+        color: #4A4A4A;
+      }
+      /* --- Page Animations --- */
+      @keyframes fadeInGlow {
+        from { 
+          opacity: 0; 
+          filter: blur(8px);
+          transform: scale(1.05);
+        }
+        to { 
+          opacity: 1; 
+          filter: blur(0);
+          transform: scale(1);
+        }
+      }
+      .animate-fade-in-glow {
+        animation: fadeInGlow 3.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        opacity: 0; /* Start hidden */
+      }
+      @keyframes slowZoom {
+        from { transform: scale(1); }
+        to { transform: scale(1.1); }
+      }
+      @keyframes fadeInDown {
+        from { opacity: 0; transform: translate3d(0, -20px, 0); }
+        to { opacity: 1; transform: translate3d(0, 0, 0); }
+      }
+      @keyframes fadeInUpInitial {
+        from { opacity: 0; transform: translate3d(0, 20px, 0); }
+        to { opacity: 1; transform: translate3d(0, 0, 0); }
+      }
+      .animate-fade-in-down {
+        animation: fadeInDown 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      }
+      .animate-fade-in-up {
+        animation: fadeInUpInitial 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+        opacity: 0; /* Start hidden */
+      }
+      .reveal-hidden {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+        transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        will-change: opacity, transform;
+      }
+      .reveal-visible {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+      .prose p {
+        margin-bottom: 1.25em;
+      }
+      .prose h3 {
+        font-family: 'Yomogi', cursive;
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-top: 2em;
+        margin-bottom: 1em;
+      }
+      .brush-underline {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 8px;
+      }
+      .brush-underline::after {
+        content: '';
+        position: absolute;
+        bottom: -6px; /* Adjust position for new height */
+        left: -8px;
+        right: -8px;
+        height: 24px; /* Taller, bolder brush stroke */
+        background-image: url('data:image/svg+xml;utf8,<svg width="200" height="24" viewBox="0 0 200 24" xmlns="http://www.w3.org/2000/svg"><path d="M2,15 C 30,22 70,10 100,15 C 130,20 170,12 198,16" stroke="%23F5E3E3" fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" style="filter: blur(0.3px);"/></svg>');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        opacity: 0.9;
+        z-index: -1;
+      }
+      /* --- Grain / Sandstorm Effect --- */
+      @keyframes sandstorm {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(-50%, 0); }
+      }
+      .has-grain-effect::before,
+      .has-grain-effect::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .has-grain-effect::before {
+        animation: sandstorm 10s linear infinite;
+        opacity: 0.04;
+      }
+      .has-grain-effect::after {
+        animation: sandstorm 7s linear infinite reverse;
+        opacity: 0.05;
+      }
+      /* --- Loading Screen Animations --- */
+      .progress-ring__text {
+        text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+      }
+      @keyframes introGlow {
+        from {
+          opacity: 0;
+          filter: blur(12px) brightness(1.5);
+          transform: scale(1.1);
+        }
+        to {
+          opacity: 0.8;
+          filter: blur(0);
+          transform: scale(1);
+        }
+      }
+      .animate-intro-glow {
+        animation: introGlow 2.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        opacity: 0;
+      }
+      @keyframes fadeOutMessage {
+        from { opacity: 0.8; }
+        to { opacity: 0; }
+      }
+      .animate-fade-out-message {
+        animation: fadeOutMessage 1s ease-in forwards;
+        opacity: 0.8; /* Start state */
+      }
+      @keyframes introGlowStrong {
+        from {
+          opacity: 0;
+          filter: blur(8px) brightness(1.2);
+          transform: scale(1.05);
+        }
+        to {
+          opacity: 1;
+          filter: blur(0);
+          transform: scale(1);
+        }
+      }
+      .animate-intro-glow-strong {
+        animation: introGlowStrong 2.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        opacity: 0;
+      }
+      @keyframes fadeOutScreen {
+        from { opacity: 1; }
+        to { opacity: 0; }
+      }
+      .animate-fade-out-screen {
+        animation: fadeOutScreen 1s ease-out forwards;
+      }
+      @keyframes fadeInApp {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-fade-in-app {
+        animation: fadeInApp 1.5s ease-in forwards;
+      }
+
+      /* --- Hero Watercolor BG --- */
+      .hero-watercolor-bg {
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-watercolor-bg::before,
+      .hero-watercolor-bg::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 150%;
+        height: 150%;
+        border-radius: 50%;
+        z-index: 0;
+        will-change: transform, opacity;
+        filter: blur(100px) brightness(1.15);
+      }
+      .hero-watercolor-bg::before {
+        background: radial-gradient(circle, hsl(30, 100%, 92%, 0.7), transparent 60%);
+        animation: heroDrift 50s ease-in-out infinite alternate;
+      }
+      .hero-watercolor-bg::after {
+        background: radial-gradient(circle, hsl(200, 100%, 92%, 0.7), transparent 60%);
+        animation: heroDrift 60s ease-in-out -15s infinite alternate-reverse;
+      }
+      @keyframes heroDrift {
+        from { transform: translate(-50%, -50%) rotate(0deg) scale(0.9); }
+        to { transform: translate(-45%, -55%) rotate(8deg) scale(1.3); }
+      }
+
+
+      /* --- NEW Watercolor Design System --- */
+      .watercolor-card, .watercolor-section {
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.85); /* Slightly translucent white "paper" */
+        border: 1px solid rgba(74, 74, 74, 0.1); /* Subtle ink-colored border */
+        border-radius: theme('borderRadius.2xl');
+        box-shadow: 0 10px 40px -15px rgba(74, 74, 74, 0.06); /* Softer, more diffuse shadow */
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 1; /* For stacking context of pseudo-element */
+      }
+      
+      /* The "Bleed" effect using a pseudo-element */
+      .watercolor-card::before, .watercolor-section::before {
+        content: '';
+        position: absolute;
+        inset: -10px;
+        border-radius: inherit;
+        background-image:
+            radial-gradient(ellipse at 80% 20%, hsl(30, 90%, 88%, 0.9) 0px, transparent 55%),
+            radial-gradient(ellipse at 20% 80%, hsl(210, 90%, 90%, 0.9) 0px, transparent 55%);
+        filter: blur(32px); /* Increased blur for softer edges */
+        transform: scale(1.05); /* Make it bleed out a bit more */
+        opacity: 0.9;
+        z-index: -1;
+      }
+
+      .watercolor-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 50px -20px rgba(74, 74, 74, 0.12); /* More pronounced shadow on hover */
+      }
+      
+      /* --- NEW Watercolor Form --- */
+      .form-field-wc {
+        position: relative;
+        background-color: hsl(40, 50%, 96%, 0.7); /* A warm, creamy wash */
+        border: 1px solid transparent;
+        border-radius: 0.75rem;
+        transition: all 0.3s ease-out;
+        padding: 0.75rem 1rem;
+      }
+      .form-field-wc:focus-within {
+        border-color: transparent;
+        background-color: hsl(40, 50%, 96%, 1);
+        box-shadow: 0 0 0 4px rgba(221, 232, 240, 0.5), 0 5px 25px -5px rgba(221, 232, 240, 0.7);
+      }
+      .form-label-wc {
+        display: block;
+        font-family: theme('fontFamily.serif-jp');
+        font-weight: 700;
+        font-size: 0.75rem;
+        color: rgba(74, 74, 74, 0.8);
+        margin-bottom: 0.1rem;
+      }
+      .form-input-wc, .form-textarea-wc {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        padding: 0.25rem 0;
+        color: #4A4A4A;
+        font-size: 1rem;
+      }
+      .form-input-wc:focus, .form-textarea-wc:focus {
+        outline: none;
+      }
+      .form-input-wc::placeholder, .form-textarea-wc::placeholder {
+        color: rgba(74, 74, 74, 0.4);
+      }
+      .form-textarea-wc {
+        resize: none;
+      }
+
+       .btn-primary {
+        background-color: theme('colors.watercolor-pink');
+        color: theme('colors.ink');
+        font-family: theme('fontFamily.serif-jp');
+        font-weight: 700;
+        padding: 0.85rem 1.25rem;
+        border-radius: theme('borderRadius.lg');
+        box-shadow: 0 8px 20px -8px rgba(245, 227, 227, 0.8);
+        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .btn-primary:hover {
+        background-color: #F8C8C8; /* slightly darker pink */
+        box-shadow: 0 12px 25px -10px rgba(245, 227, 227, 1), 0 0 10px -5px rgba(255,255,255,0.5);
+        transform: translateY(-3px);
+      }
+
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'paper': '#FFFFFF',
+              'ink': '#4A4A4A',
+              'watercolor-pink': '#F5E3E3',
+              'watercolor-blue': '#DDE8F0',
+              'watercolor-border': '#EAEAEA',
+              'white': '#FFFFFF',
+            },
+            fontFamily: {
+              'serif-jp': ['"Yomogi"', 'cursive'],
+              'sans-jp': ['"Yomogi"', 'cursive'],
+            },
+            boxShadow: {
+              'watercolor': '0 4px 15px -2px rgba(74, 74, 74, 0.08)',
+              'watercolor-hover': '0 8px 30px -5px rgba(221, 232, 240, 0.5), 0 5px 15px -5px rgba(245, 227, 227, 0.6)',
+              'header-shadow': '0 2px 20px -5px rgba(74, 74, 74, 0.07)',
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.12.0",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.7.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
