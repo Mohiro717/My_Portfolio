@@ -118,7 +118,7 @@ const AboutPage: React.FC = () => {
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
-            <section id="son-details" className="bg-paper p-8 rounded-2xl shadow-watercolor">
+            <section id="son-details" className="watercolor-card bg-paper p-8 rounded-2xl shadow-watercolor">
               <h4 className="text-lg font-serif-jp font-bold text-ink mb-4">参考：長男の病状について</h4>
               <p className="text-sm text-ink/80 leading-relaxed">
                 長男はX染色体の一部に欠損があり、それが骨系への症状として現れています。具体的には鼻の低形成、頚椎の異形成不全などがあり、骨を作る設計図の異常により骨格に異常が出る、という状態です。合併症として心臓疾患、難聴、発達・摂食障害の可能性も指摘されています。これまでの入院はいずれも鼻腔・気管狭窄によるもので、普段から気道が狭いため、風邪などで呼吸困難に陥ります。自宅の寝室では、ネーザルハイフローという人工呼吸機を常に装着しています。

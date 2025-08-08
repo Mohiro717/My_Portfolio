@@ -18,7 +18,7 @@ const ContactPage: React.FC = () => {
             <p className="text-ink/80 leading-relaxed">僕の物語や制作物に少しでも興味を持っていただけたら、<br/>ぜひお気軽にご連絡ください。</p>
           </div>
 
-          <div className="bg-watercolor-blue/30 text-center mb-12 p-8 rounded-2xl shadow-watercolor">
+          <div className="watercolor-card bg-watercolor-blue/30 text-center mb-12 p-8 rounded-2xl shadow-watercolor">
             <h3 className="text-xl font-serif-jp font-bold text-ink mb-3">まずは、お気軽にX (旧Twitter) から</h3>
             <p className="text-ink/80 mb-6">日々の学習の様子や、ちょっとしたつぶやきを発信しています。<br/>フォローやDM、いつでも大歓迎です！</p>
             <a href="https://x.com/3537Hi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gray-800 text-white font-bold font-sans-jp py-3 px-6 rounded-lg hover:bg-opacity-80 transition-all duration-300 shadow-lg">
@@ -29,7 +29,7 @@ const ContactPage: React.FC = () => {
             </a>
           </div>
 
-          <div className="bg-paper p-8 md:p-12 rounded-2xl shadow-watercolor">
+          <div className="watercolor-card bg-paper p-8 md:p-12 rounded-2xl shadow-watercolor">
             <h3 className="text-xl font-serif-jp font-bold text-ink text-center mb-8">お問い合わせはこちらから</h3>
             <form action={formspreeEndpoint} method="POST">
               <div className="space-y-8">

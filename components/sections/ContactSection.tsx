@@ -16,7 +16,7 @@ const ContactSection: React.FC = () => {
                 <p className="text-ink/80 leading-relaxed">僕の物語や制作物に少しでも興味を持っていただけたら、<br/>ぜひお気軽にご連絡ください。</p>
               </div>
 
-              <div className="watercolor-section text-center mb-12 p-8 rounded-2xl">
+              <div className="text-center mb-12 p-8 rounded-2xl bg-watercolor-blue/30 shadow-watercolor">
                 <h3 className="text-xl font-serif-jp font-bold text-ink mb-3">気軽にフォローしてください</h3>
                 <p className="text-ink/80 mb-6">
                   日々の学習の様子はXで、よりカジュアルな音声配信はstand.fmで行っています。<br/>
@@ -38,7 +38,7 @@ const ContactSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="watercolor-section p-8 md:p-12">
+              <div className="p-8 md:p-12 bg-paper rounded-2xl shadow-watercolor">
                 <h3 className="text-xl font-serif-jp font-bold text-ink text-center mb-8">お問い合わせはこちらから</h3>
                 <form action={formspreeEndpoint} method="POST">
                   <div className="space-y-6">

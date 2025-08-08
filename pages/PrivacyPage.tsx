@@ -10,9 +10,9 @@ const PrivacyPage: React.FC = () => {
           <h2 className="text-4xl font-serif-jp font-bold text-center text-ink mb-12"><span className="brush-underline">プライバシーポリシー</span></h2>
         </ScrollReveal>
 
-        <div className="watercolor-section p-8 md:p-12 space-y-10 text-ink/90 leading-loose">
+        <div className="p-8 md:p-12 space-y-10 text-ink/90 leading-loose">
           <ScrollReveal delay={100}>
-            <p className="mb-8 p-6 bg-watercolor-pink/20 rounded-2xl">
+            <p className="watercolor-card mb-8 p-6 bg-watercolor-pink/20 rounded-2xl">
               あなたのプライバシーは、私にとって非常に大切なものです。このサイトが、安心して過ごせる場所であるように。ここでは、個人情報の取り扱いについて、透明性をもってお伝えします。
             </p>
           </ScrollReveal>

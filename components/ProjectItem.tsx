@@ -13,7 +13,7 @@ export interface ProjectProps {
 
 const ProjectItem: React.FC<ProjectProps & { delay: number }> = ({ category, title, description, imageUrl, linkUrl, linkText, skills, delay }) => (
   <ScrollReveal delay={delay}>
-    <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 watercolor-card p-8">
+    <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 bg-paper rounded-2xl shadow-watercolor p-8">
       <a href={linkUrl} target="_blank" rel="noopener noreferrer" className="md:w-1/3 w-full flex-shrink-0 block">
         <img src={imageUrl} alt={title} className="rounded-xl object-cover w-full h-64 md:h-full transform transition-all duration-300 hover:scale-105" />
       </a>

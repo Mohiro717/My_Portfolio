@@ -10,9 +10,9 @@ const TermsPage: React.FC = () => {
           <h2 className="text-4xl font-serif-jp font-bold text-center text-ink mb-12"><span className="brush-underline">利用規約</span></h2>
         </ScrollReveal>
         
-        <div className="watercolor-section p-8 md:p-12 space-y-10 text-ink/90 leading-loose">
+        <div className="p-8 md:p-12 space-y-10 text-ink/90 leading-loose">
           <ScrollReveal delay={100}>
-            <p className="mb-8 p-6 bg-watercolor-blue/20 rounded-2xl">
+            <p className="watercolor-card mb-8 p-6 bg-watercolor-blue/20 rounded-2xl">
               本サイトを心地よく、そして安全にご利用いただくために、いくつかのルールを定めました。少し堅苦しい言葉が続きますが、大切なことですので、ご一読いただけますと幸いです。
             </p>
           </ScrollReveal>

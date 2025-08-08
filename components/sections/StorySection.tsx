@@ -15,7 +15,7 @@ const StorySection: React.FC = () => {
             </ScrollReveal>
             
             <ScrollReveal delay={100}>
-                <div className="watercolor-section p-8 md:p-12">
+                <div className="p-8 md:p-12">
                     <div className="space-y-16 text-ink/90 leading-loose text-base">
                       <section>
                         <h3 className="text-2xl font-serif-jp font-bold text-ink mb-6"><span className="brush-underline">第一章：軋む日常と、突然の絶望</span></h3>
@@ -111,7 +111,7 @@ const StorySection: React.FC = () => {
                         </p>
                       </section>
 
-                      <section id="son-details" className="bg-paper p-8 rounded-2xl shadow-watercolor mt-16">
+                      <section id="son-details" className="watercolor-card bg-paper p-8 rounded-2xl shadow-watercolor mt-16">
                         <h4 className="text-lg font-serif-jp font-bold text-ink mb-4">参考：長男の病状について</h4>
                         <p className="text-sm text-ink/80 leading-relaxed">
                           長男はX染色体の一部に欠損があり、それが骨系への症状として現れています。具体的には鼻の低形成、頚椎の異形成不全などがあり、骨を作る設計図の異常により骨格に異常が出る、という状態です。合併症として心臓疾患、難聴、発達・摂食障害の可能性も指摘されています。これまでの入院はいずれも鼻腔・気管狭窄によるもので、普段から気道が狭いため、風邪などで呼吸困難に陥ります。自宅の寝室では、ネーザルハイフローという人工呼吸機を常に装着しています。
