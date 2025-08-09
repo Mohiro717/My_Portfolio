@@ -21,7 +21,7 @@ const WorksSection: React.FC = () => {
               category="UEFN Game"
               title="個人制作マップ"
               description="初めてUEFNとVerseに触れ、アスレチックとスマブラ風アクションゲームの要素を詰め込んだマップ。手探り状態から、ゲームを「創る」ことの楽しさと難しさを学びました。僕のクリエイターとしての原点です。"
-              imageUrl="https://images.unsplash.com/photo-1534294645934-2a2b57a7e634?auto=format&fit=crop&w=800&q=80"
+              imageUrl="/images/portfolio-uefn.jpg"
               linkUrl="https://www.fortnite.com/@mohiro?lang=ja"
               linkText="マップをプレイする"
               skills={['UEFN', 'Verse', 'Game Design']}
@@ -41,9 +41,9 @@ const WorksSection: React.FC = () => {
               category="Web Development"
               title="このポートフォリオサイト"
               description="「クリエイターが集う場所にふさわしい自由なデザイン」をコンセプトに、Vibe Voodo（React, TypeScript, TailwindCSS）を用いてゼロから構築しました。僕の物語と世界観を表現するための、もう一つの大切な作品です。"
-              imageUrl="https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?auto=format&fit=crop&w=800&q=80"
-              linkUrl="https://github.com/your-repo/your-repo-name" // TODO: Add actual repo link if available
-              linkText="ソースコードを見る (準備中)"
+              imageUrl="/images/portfolio-screenshot.jpg"
+              linkUrl="https://mokumokuhouse.vercel.app/"
+              linkText="サイトを見る"
               skills={['Vibe Voodo', 'React', 'TypeScript', 'TailwindCSS', 'UI/UX Design']}
               delay={300}
             />
