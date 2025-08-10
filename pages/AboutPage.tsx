@@ -58,9 +58,9 @@ const AboutPage: React.FC = () => {
               <p className="mb-4">
                 本当に、ただそれだけでした。何かに吸い寄せられるようにDiscordのサーバーを覗くと、そこにはまるで大学の研究室や部室のような、熱気と遊び心に満ちた空間が広がっていました。FiNANCiEのコミュニティにも参加し、昔夢中になったゲームの話で盛り上がるうちに、僕の中で何かが再燃するのを感じました。忘れていた「熱中する」という感覚。乾ききった心に水がじわりと染み渡るようでした。
               </p>
-               <p className="font-bold text-center text-lg text-watercolor-pink my-8 px-4 font-serif-jp">
-                「もしかしたら、今の自分でも。スキルがなくても、ここなら挑戦できるかもしれない。」
-              </p>
+               <p className="font-black text-center text-xl text-ink my-8 px-4 font-serif-jp" style={{ textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.6), 0 4px 8px rgba(255,255,255,0.4)', filter: 'brightness(1.2) contrast(1.3)', fontWeight: '900' }}>
+                "もしかしたら、今の自分でも。スキルがなくても、ここなら挑戦できるかもしれない。"
+               </p>
               <p>
                 まちゃさんとマナブさんの言葉が、諦めで固く閉ざしていた僕の心の扉を何度も何度も叩きました。仕事中も、布団の中でも、その思いが頭から離れない。「ここで一歩踏み出さなければ、一生後悔する」。そう確信した僕は、、UEFNの学習を始めることを決意したのでした。
               </p>

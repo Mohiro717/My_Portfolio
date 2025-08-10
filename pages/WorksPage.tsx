@@ -70,13 +70,13 @@ const WorksPage: React.FC = () => {
           delay={200}
         />
          <ProjectItem
-          category="Web Development"
-          title="このポートフォリオサイト"
-          description="「クリエイターが集う場所にふさわしい自由なデザイン」をコンセプトに、Vibe Voodo（React, TypeScript, TailwindCSS）を用いてゼロから構築しました。僕の物語と世界観を表現するための、もう一つの大切な作品です。"
+          category="Development"
+          title="Webサイト制作"
+          description="Vibe Codingで、デザインの再現性はもちろん、コンポーネント設計やパフォーマンスを意識して実装したWebサイトです。実装には Next.js (React) を採用し、Sass (SCSS) と CSS Modules でスタイリングを行うことで、再利用性が高く保守性に優れたコードを目指しました。私にとって、モダンなフロントエンド開発の基礎を固める上で、大きな一歩となった大切な作品です。"
           imageUrl="https://images.unsplash.com/photo-1509343256512-d77a5cb3791b?auto=format&fit=crop&w=800&q=80"
           linkUrl="https://github.com/your-repo/your-repo-name" // TODO: Add actual repo link if available
           linkText="ソースコードを見る (準備中)"
-          skills={['Vibe Voodo', 'React', 'TypeScript', 'TailwindCSS', 'UI/UX Design']}
+          skills={['Next.js', 'Sass', 'CSS Modules', 'UI/UX Design']}
           delay={300}
         />
       </div>

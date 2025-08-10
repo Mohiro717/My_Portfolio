@@ -17,6 +17,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onFinished }) => {
   const [progress, setProgress] = useState(0);
   const [loadingDots, setLoadingDots] = useState('');
   const animationFrameId = useRef<number | null>(null);
+  const [isSkipped, setIsSkipped] = useState(false);
 
   const messages = [
     "どんな逆境だって、",
@@ -25,9 +26,17 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onFinished }) => {
 
   const loadingDuration = 2500;
 
+  const handleSkip = () => {
+    setIsSkipped(true);
+    if (animationFrameId.current) {
+      cancelAnimationFrame(animationFrameId.current);
+    }
+    onFinished();
+  };
+
   // Progress ring animation
   useEffect(() => {
-    if (phase !== 0) return;
+    if (phase !== 0 || isSkipped) return;
 
     let startTime: number | null = null;
     const animate = (timestamp: number) => {
@@ -51,7 +60,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onFinished }) => {
   
   // Loading dots animation
   useEffect(() => {
-    if (phase !== 0) return;
+    if (phase !== 0 || isSkipped) return;
 
     const interval = setInterval(() => {
         setLoadingDots(dots => (dots.length >= 3 ? '' : dots + '.'));
@@ -63,6 +72,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onFinished }) => {
 
   // Phased animation sequence for messages and screen fade out
   useEffect(() => {
+    if (isSkipped) return;
     let timer: NodeJS.Timeout;
     if (phase === 1) {      // Ring fades out
       timer = setTimeout(() => setPhase(2), 600);
@@ -78,7 +88,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onFinished }) => {
       timer = setTimeout(onFinished, 1000);
     }
     return () => clearTimeout(timer);
-  }, [phase, onFinished]);
+  }, [phase, onFinished, isSkipped]);
   
   const radius = 54;
   const circumference = 2 * Math.PI * radius;
@@ -101,6 +111,21 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onFinished }) => {
       aria-live="polite"
       role="status"
     >
+      {/* Skip Button - Only show after progress ring phase */}
+      {phase > 1 && (
+        <button
+          onClick={handleSkip}
+          className="absolute top-6 right-6 text-white/60 hover:text-white/90 transition-all duration-300 text-lg font-serif-jp tracking-wider hover:scale-105 flex items-center gap-3"
+          aria-label="スキップ"
+        >
+          <div className="flex">
+            <span className="animate-pulse" style={{ animationDelay: '0ms' }}>＞</span>
+            <span className="animate-pulse" style={{ animationDelay: '200ms' }}>＞</span>
+            <span className="animate-pulse" style={{ animationDelay: '400ms' }}>＞</span>
+          </div>
+          <span>Skip</span>
+        </button>
+      )}
       <div className="relative text-center p-6 w-full max-w-sm h-48 flex items-center justify-center">
         {/* Progress Ring Container */}
         <div 
@@ -153,7 +178,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onFinished }) => {
            </p>
            
           <p 
-            className={`absolute text-3xl md:text-4xl text-white ${getMessage2Class()}`}
+            className={`absolute text-3xl md:text-4xl text-white whitespace-nowrap ${getMessage2Class()}`}
             style={{ textShadow: '0 2px 10px rgba(255,255,255,0.3)' }}
             aria-hidden={phase < 4}
           >

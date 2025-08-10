@@ -29,7 +29,7 @@ const StorySection: React.FC = () => {
                           2018年に今の奥さんと結婚し、二人の子供に恵まれました。公園で遊ぶ娘の笑い声、家族で囲む温かい食卓。そんなありふれた日常が、僕の唯一の誇りであり、守るべきすべてでした。でもその日常は、突然崩れ去ります。
                         </p>
                         <p className="mb-4">
-                          2023年、生まれたばかりの長男がX染色体の一部に欠損があり、それが骨系への症状として現れていることが判明したのです。医師から告げられた病名は、まるで異世界の言葉のように僕の頭をすり抜けていきました。
+                          2023年、生まれたばかりの長男が難病を患っていることが判明したのです。医師から告げられた病名は、まるで異世界の言葉のように僕の頭をすり抜けていきました。
                         </p>
                         <h4 className="text-xl font-serif-jp font-bold text-ink mb-4">先の見えない道</h4>
                          <figure className="my-12">
@@ -58,7 +58,7 @@ const StorySection: React.FC = () => {
                         <p className="mb-4">
                           本当に、ただそれだけでした。何かに吸い寄せられるようにDiscordのサーバーを覗くと、そこにはまるで大学の研究室や部室のような、熱気と遊び心に満ちた空間が広がっていました。FiNANCiEのコミュニティにも参加し、昔夢中になったゲームの話で盛り上がるうちに、僕の中で何かが再燃するのを感じました。忘れていた「熱中する」という感覚。乾ききった心に水がじわりと染み渡るようでした。
                         </p>
-                         <p className="font-bold text-center text-lg text-watercolor-pink my-8 px-4 font-serif-jp">
+                         <p className="font-black text-center text-xl text-ink my-8 px-4 font-serif-jp" style={{ textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.6), 0 4px 8px rgba(255,255,255,0.4)', filter: 'brightness(1.2) contrast(1.3)', fontWeight: '900' }}>
                           「もしかしたら、今の自分でも。スキルがなくても、ここなら挑戦できるかもしれない。」
                         </p>
                         <p>
@@ -69,7 +69,7 @@ const StorySection: React.FC = () => {
                       <section>
                         <h3 className="text-2xl font-serif-jp font-bold text-ink mb-6"><span className="brush-underline">第三章：嵐の中の船出</span></h3>
                         <p className="mb-4">
-                          しかし、僕がようやく希望の船に乗り込もうとした矢先、その船は大きな嵐に見舞われます。
+                          しかし、僕がようやく希望の船に乗り込み少しずつ手ごたえを感じてきた矢先、船は大きな嵐に見舞われます。
                         </p>
                         <blockquote className="relative bg-transparent p-6 my-8 text-sm text-ink/80">
                           <div className="absolute inset-0 bg-watercolor-blue opacity-20 rounded-full blur-xl"></div>
@@ -80,14 +80,14 @@ const StorySection: React.FC = () => {
                                 <li>コア事業に集中するため、コミュニティ運営を停止</li>
                             </ul>
                              <p className="mt-4">…成果を出すための痛みのある改革です。…BGLは終了じゃなく、成果の出る体制にシフトです。</p>
-                             <cite className="block text-right mt-4 not-italic">- 2024年7月 BGLからの発表より抜粋</cite>
+                             <cite className="block text-right mt-4 not-italic">- 2025年7月 BGLからの発表より抜粋</cite>
                           </div>
                         </blockquote>
                         <p className="mb-4">
-                          コミュニティは停止され、事業はコアメンバーで再スタートする。この発表は大きな衝撃でした。やっと見つけた「居場所」がなくなることへの不安。しかし、僕の心は不思議と穏やかでした。
+                          コミュニティは停止され、事業はコアメンバーで再スタートする。この発表は大きな衝撃でした。やっと見つけた「居場所」がなくなることへの不安。
                         </p>
                         <p>
-                          なぜなら、僕の決意は、もう誰かや何かに依存するものではなくなっていたからです。「環境が変わっても、自分の足で立つしかない。BGLが結果を出すために変わるのなら、僕も個人として結果を出す」。嵐の中での船出は、むしろ僕の覚悟を固めるための、最初の試練となったのです。
+                          でも、僕の決意はもう誰かや何かに依存するものではなくなっていました。「環境が変わっても、自分の足で立つしかない。BGLが結果を出すために変わるのなら、僕も個人として結果を出す為に動き方を変える」。船を襲った嵐は、むしろ僕の覚悟を固めるための最初の試練となったのです。
                         </p>
                       </section>
 
@@ -106,9 +106,12 @@ const StorySection: React.FC = () => {
                         <p className="mb-4">
                           リソースに限りがあり、全力でのコミットは難しい。でも、今まさによちよち歩きを始めた長男と同じように、僕もクリエイターとして、一歩一歩、昨日より少しだけ前に進んでいきます。
                         </p>
-                         <p className="font-bold text-center text-lg my-8 font-serif-jp">
-                          BGLに出会い、挑戦という希望に触れ、僕は救われました。まだ形に残る成果は小さいですが、ドン底から這い上がる活力と勇気をいただきました。この物語が、今、同じように暗闇の中にいる誰かの、小さな灯火になることを願って。
-                        </p>
+                         <div className="relative my-12">
+                          <div className="absolute inset-0 bg-watercolor-pink/10 rounded-2xl blur-xl"></div>
+                          <p className="relative font-black text-center text-2xl my-8 font-serif-jp text-ink py-8 px-6" style={{ textShadow: '0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.7), 0 6px 12px rgba(255,255,255,0.5)', filter: 'brightness(1.3) contrast(1.4)', lineHeight: '1.8', fontWeight: '900' }}>
+                            BGLに出会い、挑戦という希望に触れ、僕は救われました。まだ形に残る成果は小さいですが、ドン底から這い上がる活力と勇気をいただきました。どんな逆境だって前を向いて本気で歩いていれば必ず幸せな明日はやってきます。この物語が、今、同じように暗闇の中にいる誰かの、小さな灯火になることを願って。
+                          </p>
+                        </div>
                       </section>
 
                       <section id="son-details" className="watercolor-card bg-paper p-8 rounded-2xl shadow-watercolor mt-16">
