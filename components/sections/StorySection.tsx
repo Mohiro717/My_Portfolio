@@ -18,7 +18,7 @@ const StorySection: React.FC = () => {
                 <div className="p-8 md:p-12">
                     <div className="space-y-16 text-ink/90 leading-loose text-base">
                       <section>
-                        <h3 className="text-2xl font-serif-jp font-bold text-ink mb-6"><span className="brush-underline">第一章：軋む日常と、突然の絶望</span></h3>
+                        <h3 className="text-2xl font-serif-jp font-bold text-ink mb-6 text-left"><span className="brush-underline">第一章：軋む日常と、突然の絶望</span></h3>
                         <p className="mb-4">
                           「特別裕福じゃないけど、何とかやっていける。これでいいか。」
                         </p>
@@ -31,10 +31,9 @@ const StorySection: React.FC = () => {
                         <p className="mb-4">
                           2023年、生まれたばかりの長男が難病を患っていることが判明したのです。医師から告げられた病名は、まるで異世界の言葉のように僕の頭をすり抜けていきました。
                         </p>
-                        <h4 className="text-xl font-serif-jp font-bold text-ink mb-4">先の見えない道</h4>
                          <figure className="my-12">
-                           <img src="https://images.unsplash.com/photo-1484820038232-a5b65b4c139c?auto=format&fit=crop&w=800&q=80" alt="先の見えない道" className="w-full rounded-2xl" />
-                           <figcaption className="text-center text-xs text-ink/60 mt-2">消毒液の匂いが立ち込める病院の廊下。僕の日常は、ここになった。</figcaption>
+                           <img src="/images/story1.jpg" alt="先の見えない道" className="w-full rounded-2xl" />
+                           <figcaption className="text-center text-xs text-ink/60 mt-2">入院中の息子。コロナ禍だった為、外部との接触はNG。まるで軟禁状態がツラ過ぎた。</figcaption>
                         </figure>
                         <p className="mb-4">
                           入退院を繰り返す小さな息子。日に日に憔悴していく妻。不安を感じ泣きじゃくる娘。僕は家族を支えようと必死でしたが、不規則な勤務がそれを阻みました。そして、情けないことに、僕自身が過労で肺炎を患い倒れてしまったのです。
@@ -45,7 +44,7 @@ const StorySection: React.FC = () => {
                       </section>
 
                       <section>
-                        <h3 className="text-2xl font-serif-jp font-bold text-ink mb-6"><span className="brush-underline">第二章：一筋の光と、忘れかけた情熱</span></h3>
+                        <h3 className="text-2xl font-serif-jp font-bold text-ink mb-6 text-left"><span className="brush-underline">第二章：一筋の光と、忘れかけた情熱</span></h3>
                          <p className="mb-4">
                           「このままでは家族がバラバラになる」ーーその一心で育児休業を取得しました。月の半分を入院して過ごす息子の傍らで、時間はあっという間に溶けていきました。復職後、家族の時間を優先するために日勤を選びましたが、各種手当が消え収入は激減。未来への不安は、より一層、黒く重くのしかかってきました。
                         </p>
@@ -67,7 +66,7 @@ const StorySection: React.FC = () => {
                       </section>
                       
                       <section>
-                        <h3 className="text-2xl font-serif-jp font-bold text-ink mb-6"><span className="brush-underline">第三章：嵐の中の船出</span></h3>
+                        <h3 className="text-2xl font-serif-jp font-bold text-ink mb-6 text-left"><span className="brush-underline">第三章：嵐の中の船出</span></h3>
                         <p className="mb-4">
                           しかし、僕がようやく希望の船に乗り込み少しずつ手ごたえを感じてきた矢先、船は大きな嵐に見舞われます。
                         </p>
@@ -92,9 +91,9 @@ const StorySection: React.FC = () => {
                       </section>
 
                       <section>
-                        <h3 className="text-2xl font-serif-jp font-bold text-ink mb-6"><span className="brush-underline">最終章：父として、挑戦者として</span></h3>
+                        <h3 className="text-2xl font-serif-jp font-bold text-ink mb-6 text-left"><span className="brush-underline">最終章：父として、挑戦者として</span></h3>
                         <figure className="my-12">
-                           <img src="https://images.unsplash.com/photo-1503435824048-a799a3a82678?auto=format&fit=crop&w=800&q=80" alt="子供との未来" className="w-full rounded-2xl" />
+                           <img src="/images/story2.jpg" alt="子供との未来" className="w-full rounded-2xl" />
                            <figcaption className="text-center text-xs text-ink/60 mt-2">僕が創る未来は、君の未来に繋がっている。</figcaption>
                         </figure>
                         <p className="mb-4">

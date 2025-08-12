@@ -20,7 +20,7 @@ const ContactSection: React.FC = () => {
                 <h3 className="text-xl font-serif-jp font-bold text-ink mb-3">気軽にフォローしてください</h3>
                 <p className="text-ink/80 mb-6">
                   日々の学習の様子はXで、よりカジュアルな音声配信はstand.fmで行っています。<br/>
-                  フォローやDM、いつでも大歓迎です！
+                  ブログも準備中です。フォローやDM、いつでも大歓迎です！
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a href="https://x.com/3537Hi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-ink/90 text-paper font-bold font-sans-jp py-3 px-6 rounded-lg hover:bg-ink transition-all duration-300 shadow-lg">
@@ -35,6 +35,13 @@ const ContactSection: React.FC = () => {
                     </svg>
                     <span>stand.fmを聴く</span>
                   </a>
+                  <div className="inline-flex items-center justify-center gap-2 bg-watercolor-yellow/60 text-ink font-bold font-sans-jp py-3 px-6 rounded-lg cursor-not-allowed opacity-75 shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                      <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+                    </svg>
+                    <span>ブログ（準備中）</span>
+                  </div>
                 </div>
               </div>
 
