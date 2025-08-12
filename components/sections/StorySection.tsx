@@ -109,7 +109,7 @@ const StorySection: React.FC = () => {
                          <div className="relative my-12">
                           <div className="absolute inset-0 bg-watercolor-pink/10 rounded-2xl blur-xl"></div>
                           <p className="relative font-black text-center text-2xl my-8 font-serif-jp text-ink py-8 px-6" style={{ textShadow: '0 0 25px rgba(255,255,255,0.9), 0 0 50px rgba(255,255,255,0.7), 0 6px 12px rgba(255,255,255,0.5)', filter: 'brightness(1.3) contrast(1.4)', lineHeight: '1.8', fontWeight: '900' }}>
-                            BGLに出会い、挑戦という希望に触れ、僕は救われました。まだ形に残る成果は小さいですが、ドン底から這い上がる活力と勇気をいただきました。どんな逆境だって前を向いて本気で歩いていれば必ず幸せな明日はやってきます。この物語が、今、同じように暗闇の中にいる誰かの、小さな灯火になることを願って。
+                            BGLに出会い、挑戦という希望に触れ、僕は救われました。まだ形に残る成果は小さいですが、ドン底から這い上がる活力と勇気をいただきました。どんな逆境だって前を向いて本気で歩いていれば必ず幸せな明日はやってきます。この物語が、今、かつての僕と同じように暗闇の中にいる誰かの、小さな灯火になることを願って。
                           </p>
                         </div>
                       </section>

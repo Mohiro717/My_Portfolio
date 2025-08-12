@@ -63,7 +63,7 @@ const WorksPage: React.FC = () => {
           category="UEFN Contribution"
           title="BGL制作マップ協力"
           description="BGLのプロジェクトで、Verseを用いた特殊能力システムの開発に協力しました。チームでの開発、他のクリエイターとの連携を通して、コードがゲームに命を吹き込む瞬間を体験しました。"
-          imageUrl="https://images.unsplash.com/photo-1516550755-9b226f92b78c?auto=format&fit=crop&w=800&q=80"
+          imageUrl="/images/roguelike_bgl.jpg"
           linkUrl="https://www.fortnite.com/@bgl/1305-1553-1636?lang=ja"
           linkText="マップをプレイする"
           skills={['Verse', 'Team Development', 'System Design']}
