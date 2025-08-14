@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
           僕の挑戦は、息子の未来への祈りだ。
         </h1>
         <p className="text-white/90 mt-4 text-md md:text-lg max-w-2xl mx-auto animate-fade-in-glow" style={{ animationDelay: '1.2s', textShadow: '0 2px 20px rgba(0,0,0,0.7)' }}>
-          Fランク卒、工場勤務、息子の難病...。ドン底で見つけたUEFNという希望。僕が歩んできた道のりと、挑戦の記録。
+          Fランク大卒、工場勤務、息子の難病...。ドン底で見つけた希望。僕が歩んできた道のりと、挑戦の記録。
         </p>
       </div>
     </div>
