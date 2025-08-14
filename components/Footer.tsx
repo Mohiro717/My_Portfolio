@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-6 py-10">
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
           <div className="mb-4 md:mb-0">
-            <p className="text-lg font-serif-jp font-bold text-ink">UEFNクリエイターへの道</p>
+            <p className="text-lg font-serif-jp font-bold text-ink">持たざる者の挑戦</p>
             <p className="text-xs text-ink/70 mt-1">&copy; {new Date().getFullYear()} All Rights Reserved.</p>
           </div>
           <div className="flex items-center space-x-6">

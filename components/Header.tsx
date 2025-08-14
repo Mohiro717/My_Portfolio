@@ -12,7 +12,6 @@ const Header: React.FC = () => {
     { id: 'home', label: 'Home' },
     { id: 'story', label: 'Story' },
     { id: 'works', label: 'Works' },
-    { id: 'blog', label: 'Blog' },
     { id: 'contact', label: 'Contact' },
   ], []);
 
@@ -41,8 +40,26 @@ const Header: React.FC = () => {
       }
     } else {
       // If on another page, navigate to the homepage with the hash
-      // The browser will handle scrolling to the element after navigation
-      navigate(targetId === 'home' ? '/' : `/#${targetId}`);
+      if (targetId === 'home') {
+        navigate('/');
+      } else {
+        navigate(`/#${targetId}`);
+        // Add a delay to ensure proper scrolling after navigation
+        setTimeout(() => {
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            const headerEl = document.querySelector('header');
+            const headerOffset = headerEl ? headerEl.offsetHeight : 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+      }
     }
   };
   
@@ -71,39 +88,28 @@ const Header: React.FC = () => {
         return;
       }
 
-      // Find the section that's most prominently displayed
-      let bestSection: string | null = null;
-      let bestRatio = 0;
+      // Find the section that's currently in view
+      let currentSection: string | null = null;
+      const headerEl = document.querySelector('header');
+      const headerHeight = headerEl ? headerEl.offsetHeight : 80;
 
-      navItems.forEach(item => {
+      // Check sections in reverse order (bottom to top) to prioritize lower sections
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const item = navItems[i];
         const element = document.getElementById(item.id);
-        if (!element) return;
+        if (!element) continue;
 
         const rect = element.getBoundingClientRect();
-        const headerEl = document.querySelector('header');
-        const headerHeight = headerEl ? headerEl.offsetHeight : 80;
-
-        // Calculate how much of the section is visible in the viewport
-        const visibleTop = Math.max(rect.top, headerHeight);
-        const visibleBottom = Math.min(rect.bottom, windowHeight);
-        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-        const totalHeight = rect.height;
-
-        if (totalHeight > 0) {
-          const visibilityRatio = visibleHeight / totalHeight;
-          
-          // Use consistent threshold for all sections
-          const threshold = 0.2;
-          
-          if (visibilityRatio > threshold && visibilityRatio > bestRatio) {
-            bestSection = item.id;
-            bestRatio = visibilityRatio;
-          }
+        
+        // Check if section is in viewport
+        if (rect.top <= headerHeight + 50 && rect.bottom > headerHeight + 50) {
+          currentSection = item.id;
+          break;
         }
-      });
+      }
 
-      if (bestSection) {
-        setActiveLink(bestSection);
+      if (currentSection) {
+        setActiveLink(currentSection);
       }
     };
 
@@ -122,7 +128,7 @@ const Header: React.FC = () => {
       threshold: [0, 0.25, 0.5, 0.75, 1],
     });
     
-    const sections = document.querySelectorAll('#home, #story, #works, #blog, #contact');
+    const sections = document.querySelectorAll('#home, #story, #works, #contact');
     sections.forEach(section => {
       if (observer.current && section) {
         sectionStates.current.set(section.id, false);
@@ -135,11 +141,32 @@ const Header: React.FC = () => {
           const id = location.hash.substring(1);
           if (navItems.find(item => item.id === id)) {
             setActiveLink(id);
+            // Only scroll if we're not on the initial page load (avoid jumping after loading screen)
+            const isInitialLoad = window.performance.navigation.type === 1 && window.scrollY === 0;
+            if (!isInitialLoad) {
+              const targetElement = document.getElementById(id);
+              if (targetElement) {
+                const headerEl = document.querySelector('header');
+                const headerOffset = headerEl ? headerEl.offsetHeight : 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+                });
+              }
+            }
           }
-        } else if (observer.current) {
-          handleIntersection(observer.current.takeRecords());
+        } else {
+          // If no hash and at top of page, ensure home is active
+          if (window.scrollY < 100) {
+            setActiveLink('home');
+          } else if (observer.current) {
+            handleIntersection(observer.current.takeRecords());
+          }
         }
-    }, 100);
+    }, 300);
 
     return () => {
       clearTimeout(timeoutId);

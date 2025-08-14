@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -12,8 +12,17 @@ import LoadingScreen from './components/LoadingScreen';
 function App() {
   const [isAppReady, setIsAppReady] = useState(false);
 
+  const handleLoadingFinished = () => {
+    setIsAppReady(true);
+    // Ensure we start at the top of the page after loading and clear any hash
+    window.location.hash = '';
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 50);
+  };
+
   if (!isAppReady) {
-    return <LoadingScreen onFinished={() => setIsAppReady(true)} />;
+    return <LoadingScreen onFinished={handleLoadingFinished} />;
   }
 
   return (
