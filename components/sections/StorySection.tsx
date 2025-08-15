@@ -14,11 +14,11 @@ const StorySection: React.FC = () => {
               </p>
             </ScrollReveal>
             
-            <ScrollReveal delay={100}>
-                <div className="p-4 md:p-8 lg:p-12">
-                    <div className="space-y-8 md:space-y-16 text-ink/90 leading-loose text-sm md:text-base">
-                      <section>
-                        <h3 className="text-lg md:text-2xl font-serif-jp font-bold text-ink mb-4 md:mb-6 text-left"><span className="brush-underline">第一章：軋む日常と、突然の絶望</span></h3>
+            <div className="p-4 md:p-8 lg:p-12">
+                <div className="space-y-8 md:space-y-16 text-ink/90 leading-loose text-sm md:text-base">
+                  <ScrollReveal delay={200}>
+                    <section>
+                      <h3 className="text-lg md:text-2xl font-serif-jp font-bold text-ink mb-4 md:mb-6 text-left"><span className="brush-underline">第一章：軋む日常と、突然の絶望</span></h3>
                         <p className="mb-4">
                           「特別裕福じゃないけど、何とかやっていける。これでいいか。」
                         </p>
@@ -41,10 +41,12 @@ const StorySection: React.FC = () => {
                         <p>
                           病院の白い天井を見上げながら、ネガティブな思考が渦巻きました。「なぜ、うちの子が？」「これからどうすれば？」「俺はなんて無力なんだ…」先の見えない長いトンネルをたった一人で歩いているような、息の詰まる孤独感。まさに、ドン底でした。
                         </p>
-                      </section>
+                    </section>
+                  </ScrollReveal>
 
-                      <section>
-                        <h3 className="text-lg md:text-2xl font-serif-jp font-bold text-ink mb-4 md:mb-6 text-left"><span className="brush-underline">第二章：一筋の光と、忘れかけた情熱</span></h3>
+                  <ScrollReveal delay={400}>
+                    <section>
+                      <h3 className="text-lg md:text-2xl font-serif-jp font-bold text-ink mb-4 md:mb-6 text-left"><span className="brush-underline">第二章：一筋の光と、忘れかけた情熱</span></h3>
                          <p className="mb-4">
                           「このままでは家族がバラバラになる」ーーその一心でした。退職も覚悟の上で会社に育児休業を申請しました。幸いにもこの申し出は承認され、家族のサポートに専念する時間を得ることができました。でも月の半分を入院して過ごす息子の傍らで、時間はあっという間に溶けていきました。復職後、家族の時間を優先するために日勤を選びましたが、各種手当が消え収入は激減。未来への不安は、より一層、黒く重くのしかかってきました。
                         </p>
@@ -63,10 +65,12 @@ const StorySection: React.FC = () => {
                         <p>
                           まちゃさんとマナブさんの言葉が、諦めで固く閉ざしていた僕の心の扉を何度も何度も叩きました。仕事中も、布団の中でも、その思いが頭から離れない。「ここで一歩踏み出さなければ、一生後悔する」。そう確信した僕は、、UEFNの学習を始めることを決意したのでした。
                         </p>
-                      </section>
+                    </section>
+                  </ScrollReveal>
                       
-                      <section>
-                        <h3 className="text-lg md:text-2xl font-serif-jp font-bold text-ink mb-4 md:mb-6 text-left"><span className="brush-underline">第三章：嵐の中の船出</span></h3>
+                  <ScrollReveal delay={600}>
+                    <section>
+                      <h3 className="text-lg md:text-2xl font-serif-jp font-bold text-ink mb-4 md:mb-6 text-left"><span className="brush-underline">第三章：嵐の中の船出</span></h3>
                         <p className="mb-4">
                           しかし、僕がようやく希望の船に乗り込み少しずつ手ごたえを感じてきた矢先、船は大きな嵐に見舞われます。
                         </p>
@@ -88,10 +92,12 @@ const StorySection: React.FC = () => {
                         <p>
                           でも、僕の決意はもう誰かや何かに依存するものではなくなっていました。「環境が変わっても、自分の足で立つしかない。BGLが結果を出すために変わるのなら、僕も個人として結果を出す為に動き方を変える」。船を襲った嵐は、むしろ僕の覚悟を固めるための最初の試練となったのです。
                         </p>
-                      </section>
+                    </section>
+                  </ScrollReveal>
 
-                      <section>
-                        <h3 className="text-lg md:text-2xl font-serif-jp font-bold text-ink mb-4 md:mb-6 text-left"><span className="brush-underline">最終章：父として、挑戦者として</span></h3>
+                  <ScrollReveal delay={800}>
+                    <section>
+                      <h3 className="text-lg md:text-2xl font-serif-jp font-bold text-ink mb-4 md:mb-6 text-left"><span className="brush-underline">最終章：父として、挑戦者として</span></h3>
                         <figure className="my-6 md:my-12">
                            <img src="/images/story2.jpg" alt="子供との未来" className="w-full rounded-2xl" />
                            <figcaption className="text-center text-xs text-ink/60 mt-2 px-2">僕が創る未来は、君の未来に繋がっている。</figcaption>
@@ -111,18 +117,20 @@ const StorySection: React.FC = () => {
                             BGLに出会い、挑戦という希望に触れ、僕は救われました。まだ形に残る成果は小さいですが、ドン底から這い上がる活力と勇気をいただきました。どんな逆境だって前を向いて本気で歩いていれば必ず幸せな明日はやってきます。この物語が、今、かつての僕と同じように暗闇の中にいる誰かの、小さな灯火になることを願って。
                           </p>
                         </div>
-                      </section>
+                    </section>
+                  </ScrollReveal>
 
-                      <section id="son-details" className="watercolor-card bg-paper p-4 md:p-8 rounded-2xl shadow-watercolor mt-8 md:mt-16">
+                  <ScrollReveal delay={1000}>
+                    <section id="son-details" className="watercolor-card bg-paper p-4 md:p-8 rounded-2xl shadow-watercolor mt-8 md:mt-16">
                         <h4 className="text-base md:text-lg font-serif-jp font-bold text-ink mb-3 md:mb-4">参考：長男の病状について</h4>
                         <p className="text-xs md:text-sm text-ink/80 leading-relaxed">
                           長男はX染色体の一部に欠損があり、それが骨系への症状として現れています。具体的には鼻の低形成、頚椎の異形成不全などがあり、骨を作る設計図の異常により骨格に異常が出る、という状態です。合併症として心臓疾患、難聴、発達・摂食障害の可能性も指摘されています。これまでの入院はいずれも鼻腔・気管狭窄によるもので、普段から気道が狭いため、風邪などで呼吸困難に陥ります。自宅の寝室では、ネーザルハイフローという人工呼吸機を常に装着しています。
                         </p>
-                      </section>
+                    </section>
+                  </ScrollReveal>
 
-                    </div>
                 </div>
-            </ScrollReveal>
+            </div>
 
           </div>
         </Layout>
