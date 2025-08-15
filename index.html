@@ -172,6 +172,17 @@
         opacity: 0.9;
         z-index: -1;
       }
+      
+      /* Mobile responsive adjustments */
+      @media (max-width: 768px) {
+        .brush-underline::after {
+          height: 18px;
+          background-size: contain;
+        }
+        .watercolor-card, .watercolor-section {
+          margin: 0.5rem 0;
+        }
+      }
       /* --- Grain / Sandstorm Effect --- */
       @keyframes sandstorm {
         0% { transform: translate(0, 0); }

@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [activeLink, setActiveLink] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const observer = useRef<IntersectionObserver | null>(null);
   const sectionStates = useRef<Map<string, boolean>>(new Map());
   const location = useLocation();
@@ -18,6 +19,7 @@ const Header: React.FC = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     setActiveLink(targetId);
+    setIsMobileMenuOpen(false); // Close mobile menu when clicking a link
 
     // If we are already on the homepage, just scroll smoothly
     if (location.pathname === '/') {
@@ -189,10 +191,23 @@ const Header: React.FC = () => {
   return (
     <header className="bg-paper/70 backdrop-blur-md sticky top-0 z-50 shadow-header-shadow">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="/" onClick={(e) => handleNavClick(e, 'home')} className="text-2xl font-serif-jp font-bold text-ink hover:text-watercolor-pink transition-colors duration-300">
+        <a href="/" onClick={(e) => handleNavClick(e, 'home')} className="text-xl md:text-2xl font-serif-jp font-bold text-ink hover:text-watercolor-pink transition-colors duration-300">
           Hope in Challenge
         </a>
-        <ul className="flex space-x-10 items-center">
+        
+        {/* Mobile menu button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden flex flex-col justify-center items-center w-8 h-8 focus:outline-none"
+          aria-label="メニューを開く"
+        >
+          <span className={`w-6 h-0.5 bg-ink transform transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-ink transform transition-all duration-300 my-1 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-ink transform transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+        </button>
+
+        {/* Desktop navigation */}
+        <ul className="hidden md:flex space-x-10 items-center">
            {navItems.map(item => (
             <li key={item.id}>
               <a href={getHref(item.id)} onClick={(e) => handleNavClick(e, item.id)} className={getLinkClasses(item.id)}>
@@ -201,6 +216,23 @@ const Header: React.FC = () => {
             </li>
           ))}
         </ul>
+
+        {/* Mobile navigation */}
+        <div className={`md:hidden absolute top-full left-0 right-0 bg-paper/95 backdrop-blur-md shadow-lg transform transition-all duration-300 ${isMobileMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'} origin-top`}>
+          <ul className="flex flex-col py-4">
+            {navItems.map(item => (
+              <li key={item.id}>
+                <a 
+                  href={getHref(item.id)} 
+                  onClick={(e) => handleNavClick(e, item.id)} 
+                  className={`block px-6 py-3 text-lg font-serif-jp ${activeLink === item.id ? 'text-watercolor-pink font-bold bg-watercolor-pink/10' : 'text-ink/70 hover:text-watercolor-pink'} transition-all duration-300`}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </header>
   );
