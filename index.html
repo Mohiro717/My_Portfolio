@@ -313,10 +313,19 @@
       .hero-with-watercolor {
         position: relative;
         overflow: hidden;
-        background-image: url('/images/home.jpg?v=20250814');
+        background-image: url('/images/home.jpg?v=20250901');
         background-size: cover;
         background-position: center bottom;
-        background-attachment: fixed;
+        background-attachment: scroll;
+      }
+      
+      /* スマホでの画像表示最適化 */
+      @media (max-width: 768px) {
+        .hero-with-watercolor {
+          background-position: center center;
+          background-size: cover;
+          min-height: 100vh;
+        }
       }
 
 
