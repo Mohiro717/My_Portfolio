@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mohiro-portfolio.vercel.app/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
+
+# Block access to admin areas and sensitive files
+Disallow: /admin
+Disallow: /.env*
+Disallow: /node_modules
+Disallow: /src
+Disallow: *.json
+Disallow: *.ts
+Disallow: *.tsx
+
+# Allow access to important files
+Allow: /assets/
+Allow: /images/
+Allow: /favicon.*

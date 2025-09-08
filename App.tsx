@@ -8,6 +8,8 @@ import PostPage from './pages/PostPage';
 import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
 import LoadingScreen from './components/LoadingScreen';
+import SEO from './components/SEO';
+import PWAInstallPrompt from './components/PWAInstallPrompt';
 
 function App() {
   const [isAppReady, setIsAppReady] = useState(false);
@@ -27,6 +29,7 @@ function App() {
 
   return (
     <div className="animate-fade-in-app">
+      <SEO />
       <HashRouter>
         <div className="flex flex-col min-h-screen font-sans-jp text-ink">
           <Header />
@@ -40,6 +43,7 @@ function App() {
           </main>
           <Footer />
         </div>
+        <PWAInstallPrompt />
       </HashRouter>
     </div>
   );

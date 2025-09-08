@@ -1,13 +1,49 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '../components/Layout';
-import { posts } from '../data/posts';
+import { BlogService } from '../services/blogService';
 import ScrollReveal from '../components/ScrollReveal';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
+import type { Post } from '../types';
 
 const PostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = posts.find(p => p.slug === slug);
+  const [post, setPost] = useState<Post | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadPost = async () => {
+      if (!slug) {
+        setLoading(false);
+        return;
+      }
+      
+      try {
+        const foundPost = await BlogService.getPostBySlug(slug);
+        setPost(foundPost);
+      } catch (error) {
+        // エラーログは削除（本番環境では適切なエラーハンドリングを実装）
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadPost();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="max-w-3xl mx-auto">
+          <div className="flex justify-center items-center py-12">
+            <div className="text-ink/60">記事を読み込み中...</div>
+          </div>
+        </div>
+      </Layout>
+    );
+  }
 
   if (!post) {
     return (
@@ -24,15 +60,31 @@ const PostPage: React.FC = () => {
   }
 
   return (
-    <Layout>
-      <div className="max-w-3xl mx-auto">
-        <ScrollReveal>
-          <div className="mb-12 text-center">
-            <p className="text-ink/70 font-medium mb-3">{post.date}</p>
-            <h1 className="text-3xl md:text-4xl font-serif-jp font-extrabold text-ink leading-tight">{post.title}</h1>
-          </div>
-          <img src={post.imageUrl} alt={post.title} className="w-full h-auto max-h-[500px] object-cover rounded-2xl mb-12" />
-        </ScrollReveal>
+    <>
+      <SEO
+        title={`${post.title} | Mohiro Portfolio`}
+        description={post.excerpt}
+        image={post.imageUrl}
+        url={`/blog/${post.slug}`}
+        type="article"
+        publishedTime={post.date}
+        keywords={['UEFN', 'ブログ', post.title.split(' ').slice(0, 3)].flat()}
+      />
+      <Layout>
+        <div className="max-w-3xl mx-auto">
+          <ScrollReveal>
+            <div className="mb-12 text-center">
+              <p className="text-ink/70 font-medium mb-3">{post.date}</p>
+              <h1 className="text-3xl md:text-4xl font-serif-jp font-extrabold text-ink leading-tight">{post.title}</h1>
+            </div>
+            <div className="mb-12">
+              <LazyImage
+                src={post.imageUrl}
+                alt={post.title}
+                className="w-full h-auto max-h-[500px] rounded-2xl"
+              />
+            </div>
+          </ScrollReveal>
 
         <ScrollReveal delay={200}>
           <div className="watercolor-section p-8 md:p-12">
@@ -49,8 +101,9 @@ const PostPage: React.FC = () => {
             </Link>
           </div>
         </ScrollReveal>
-      </div>
-    </Layout>
+        </div>
+      </Layout>
+    </>
   );
 };
 

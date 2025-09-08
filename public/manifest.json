@@ -1,0 +1,76 @@
+{
+  "name": "Mohiro Portfolio - UEFNクリエイターの挑戦",
+  "short_name": "Mohiro Portfolio",
+  "description": "UEFNクリエイターmohiroのポートフォリオサイト。逆境から生まれた挑戦の物語と、日々の学びを綴るブログ。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf9f7",
+  "theme_color": "#f8b4d9",
+  "orientation": "portrait-primary",
+  "lang": "ja",
+  "categories": ["portfolio", "blog", "personal", "creative"],
+  "icons": [
+    {
+      "src": "/images/favicon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/favicon.jpg", 
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/home.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "ポートフォリオのメインページ"
+    }
+  ],
+  "scope": "/",
+  "id": "mohiro-portfolio",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "ブログ",
+      "short_name": "ブログ",
+      "description": "最新のブログ投稿を見る",
+      "url": "/#blog",
+      "icons": [
+        {
+          "src": "/images/favicon.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "作品",
+      "short_name": "作品",
+      "description": "作品ポートフォリオ",
+      "url": "/#works",
+      "icons": [
+        {
+          "src": "/images/favicon.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "ストーリー",
+      "short_name": "ストーリー", 
+      "description": "挑戦の物語",
+      "url": "/#story",
+      "icons": [
+        {
+          "src": "/images/favicon.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

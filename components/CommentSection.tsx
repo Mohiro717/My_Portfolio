@@ -25,7 +25,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({ postSlug }) => {
           timestamp: new Date(c.timestamp)
         })));
       } catch (error) {
-        console.error('コメントの読み込みに失敗しました:', error);
+        // エラーログは削除（本番環境では適切なエラーハンドリングを実装）
       }
     }
   }, [postSlug]);
