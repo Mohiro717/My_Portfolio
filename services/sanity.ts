@@ -3,10 +3,11 @@ import imageUrlBuilder from '@sanity/image-url';
 
 // Sanityプロジェクト設定
 export const sanityClient = createClient({
-  projectId: process.env.VITE_SANITY_PROJECT_ID || 'kuw8yakr',
-  dataset: process.env.VITE_SANITY_DATASET || 'production',
+  projectId: import.meta.env.VITE_SANITY_PROJECT_ID || 'kuw8yakr',
+  dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
   useCdn: false, // 開発中はCDNを無効にして最新データを確実に取得
   apiVersion: '2022-06-01', // CLIと同じバージョンに統一
+  perspective: 'published', // 公開済みコンテンツのみ取得
 });
 
 
