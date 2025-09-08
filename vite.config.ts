@@ -12,6 +12,10 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      server: {
+        // PWA開発用のHTTPS設定（オプション）
+        // https: true // 必要に応じてコメントアウト
       }
     };
 });
