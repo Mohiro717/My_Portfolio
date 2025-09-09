@@ -3,7 +3,15 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": "vite",
-  "alias": ["mohiro-portfolio.vercel.app"],
+  "alias": [
+    "mohiro-portfolio.vercel.app",
+    "my-portfolio-mohiros-projects.vercel.app"
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "master": true
+    }
+  },
   "rewrites": [
     {
       "source": "/((?!manifest\\.json|sw\\.js|assets|favicon\\.ico).*)",
